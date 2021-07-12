@@ -22,6 +22,8 @@ function RPH_InitEnFactionGains()
 	zone.Thunder_Bluff = 1456
 	zone.UnGoro_Crater = 1449
 	zone.Winterspring = 1452
+	zone.Bloodmyst_Isle = 1450
+	zone.Azuremyst_Isle = 1443
 	
 	-- Eastern Kingdoms
 	zone.Alterac_Mountains = 1416
@@ -49,11 +51,24 @@ function RPH_InitEnFactionGains()
 	zone.Western_Plaguelands = 1422
 	zone.Westfall = 1436
 	zone.Wetlands = 1437
+	zone.Eversong_Woods = 1941
+	zone.Isle_Of_Quel_Danas = 1957
+	
+	-- Outlands
+	zone.Hellfire_Peninsula = 1944
+	zone.Zangarmarsh = 1946
+	zone.Shadowmoon_Valley = 1948
+	zone.Blades_Edge_Mountains = 1949
+	zone.Nagrand = 1951
+	zone.Terokkar_Forest = 1952
+	zone.Netherstorm = 1953
+	zone.Shattrah_City = 1955
 
 	-- Battlegrounds
 	zone.Warsong_Gulch = 1460
 	zone.Arathi_Basin = 1461
 	zone.Alterac_Valley = 1459
+	zone.Eye_Of_The_Storm = 1956
 
 	if (RPH_IsAlliance) then
 		-- Stormwind
@@ -118,7 +133,17 @@ function RPH_InitEnFactionGains()
 		RPH_AddQuest(589, 4, 8, 4970, 50, {[12622] = 5, [12623] = 5})
 		RPH_AddQuest(589, 4, 8, 5201, 50)
 		RPH_AddQuest(589, 6, 8, 5981, 50)
-
+		
+		-- Exodar
+		RPH_AddQuest(930, 4, 8, 7792, 350, {[2592] = 60}, nill, false)
+		RPH_AddQuest(930, 4, 8, 7798, 350, {[4306] = 60}, nill, false)
+		RPH_AddQuest(930, 4, 8, 10356, 350, {[4338] = 60}, nill, false)
+		RPH_AddQuest(930, 4, 8, 10357, 350, {[14047] = 60}, nill, false)
+		RPH_AddQuest(930, 4, 8, 10358, 75, {[14047] = 20})
+		
+		-- Honor Hold
+		-- TODO: Add more quests/instances and add quest(s) to questdb.lua
+		RPH_AddQuest(946, 4, 8, "The Fall of Magtheridon", 1000, {["Magtheridon's Head"] = 1}, nill, false)
 	end
 
 	if (RPH_IsHorde) then
@@ -180,6 +205,17 @@ function RPH_InitEnFactionGains()
 		RPH_AddMob(729, 4, 8, "Ivus the Forest Lord", 125)
 		RPH_AddGeneral(729, 4, 8, "Alliance Players", 1, "Alliance Players", "Kill Alliance players to gain reputation")
 
+		-- Silvermoon City
+		RPH_AddQuest(911, 4, 8, 10359, 350, {[2592] = 60}, nill, false)
+		RPH_AddQuest(911, 4, 8, 10360, 350, {[4306] = 60}, nill, false)
+		RPH_AddQuest(911, 4, 8, 10361, 350, {[4338] = 60}, nill, false)
+		RPH_AddQuest(911, 4, 8, 10362, 350, {[14047] = 60}, nill, false)
+		RPH_AddQuest(911, 4, 8, 10363, 75, {[14047] = 20})
+		
+		-- Thrallmar
+		-- TODO: Add more quests/instances and add quest(s) to questdb.lua
+		RPH_AddQuest(947, 4, 8, "The Foot of the Citadel", 1000, {["The Head of the Hand of Kargath"] = 1}, nill, false)
+		RPH_AddQuest(947, 4, 8, "The Fall of Magtheridon", 1000, {["Magtheridon's Head"] = 1}, nill, false)
 	end
 
 	-- Argent Dawn
@@ -235,8 +271,8 @@ function RPH_InitEnFactionGains()
 	--TODO: --P5-- Confirm rep for Abyssal templar/duke/lord and add total instance rep
 	RPH_AddMob(609, 4, 6, "Twilight Cultists", 1, zone.Silithus)
 	RPH_AddMob(609, 4, 7, "Twilight Flamereaver", 1, zone.Silithus)
-	RPH_AddMob(609, 4, 8, "Twilight Lord Everun", 5)
-	RPH_AddMob(609, 4, 6, "Twilight Keeper", 5)
+	RPH_AddMob(609, 4, 8, "Twilight Lord Everun", 5, zone.Silithus)
+	RPH_AddMob(609, 4, 6, "Twilight Keeper", 5, zone.Silithus)
 	RPH_AddQuest(609, 4, 8, 8362, 75, {[20513] = 3})
 	RPH_AddQuest(609, 4, 8, 8363, 250, {[20514] = 3})
 	RPH_AddQuest(609, 4, 8, 8364, 350, {[20515] = 3})
@@ -244,40 +280,41 @@ function RPH_InitEnFactionGains()
 	RPH_AddQuest(609, 4, 8, 9338, 200, {[20802] = 1, [20800] = 1, [20801] = 1})
 	
 	-- Darkmoon Faire
-	RPH_AddQuest(909, 4, 4, "Small Furry Paws", 100, {[5134] = 5})
-	RPH_AddQuest(909, 4, 4, "Torn Bear Pelts", 100, {[11407] = 5})
-	RPH_AddQuest(909, 4, 4, "Soft Bushy Tails", 100, {[4582] = 5})
-	RPH_AddQuest(909, 4, 4, "Vibrant Plumes", 100, {[5117] = 5})
-	RPH_AddQuest(909, 4, 4, "Evil Bat Eyes", 100, {[11404] = 10}, nill, false)
-	RPH_AddQuest(909, 4, 4, "More Bat Eyes", 100, {[11404] = 10})
-	RPH_AddQuest(909, 4, 4, "Glowing Scorpid Blood", 100, {[19933] = 10}, nill, false)
-	RPH_AddQuest(909, 4, 4, "More Glowing Scorpid Blood", 100, {[19933] = 10})
-	RPH_AddQuest(909, 4, 4, "Coarse Weightstones", 100, {[3240] = 10})
-	RPH_AddQuest(909, 4, 4, "Heavy Grinding Stone", 100, {[3486] = 7})
-	RPH_AddQuest(909, 4, 4, "Green Iron Bracers", 100, {[3835] = 3})
-	RPH_AddQuest(909, 4, 4, "Big Black Mace", 100, {[7945] = 1})
+	-- TODO: Find a way to work around the weird rep cut off of 2001/6000.
+	RPH_AddQuest(909, 4, 4, "Small Furry Paws", 250, {[5134] = 5})
+	RPH_AddQuest(909, 4, 4, "Torn Bear Pelts", 250, {[11407] = 5})
+	RPH_AddQuest(909, 4, 4, "Soft Bushy Tails", 250, {[4582] = 5})
+	RPH_AddQuest(909, 4, 4, "Vibrant Plumes", 250, {[5117] = 5})
+	RPH_AddQuest(909, 4, 4, "Evil Bat Eyes", 250, {[11404] = 10}, nill, false)
+	RPH_AddQuest(909, 4, 4, "More Bat Eyes", 100, {[11404] = 10}) -- Might not give rep. (have to check)
+	RPH_AddQuest(909, 4, 4, "Glowing Scorpid Blood", 250, {[19933] = 10}, nill, false)
+	RPH_AddQuest(909, 4, 4, "More Glowing Scorpid Blood", 100, {[19933] = 10}) -- Might not give rep. (have to check)
+	RPH_AddQuest(909, 4, 4, "Coarse Weightstone", 250, {[3240] = 10})
+	RPH_AddQuest(909, 4, 4, "Heavy Grinding Stone", 250, {[3486] = 7})
+	RPH_AddQuest(909, 4, 4, "Green Iron Bracers", 250, {[3835] = 3})
+	RPH_AddQuest(909, 4, 4, "Big Black Mace", 250, {[7945] = 1})
 	RPH_AddQuest(909, 4, 4, "Rituals of Strength", 100, {[12644] = 8}, nill, false)
-	RPH_AddQuest(909, 4, 4, "More Dense Grinding Stones", 100, {[12644] = 8})
-	RPH_AddQuest(909, 4, 4, "Copper Modulator", 100, {[4363] = 5}, 500)
-	RPH_AddQuest(909, 4, 4, "Whirring Bronze Gizmo", 100, {[4375] = 7})
-	RPH_AddQuest(909, 4, 4, "Green Firework", 100, {[9313] = 36})
-	RPH_AddQuest(909, 4, 4, "Mechanical Repair Kit", 100, {[11590] = 6})
-	RPH_AddQuest(909, 4, 4, "Thorium Widget", 100, {[15994] = 6}, nill, false)
-	RPH_AddQuest(909, 4, 4, "More Thorium Widgets", 100, {[15994] = 6})
-	RPH_AddQuest(909, 4, 4, "Embossed Leather Boots", 100, {[2309] = 3})
-	RPH_AddQuest(909, 4, 4, "Toughened Leather Armor", 100, {[2314] = 3})
-	RPH_AddQuest(909, 4, 4, "Barbaric Harness", 100, {[5739] = 3})
-	RPH_AddQuest(909, 4, 4, "Turtle Scale Leggins", 100, {[8185] = 1})
-	RPH_AddQuest(909, 4, 4, "Armor Kits", 100, {[15564] = 8}, nill, false)
-	RPH_AddQuest(909, 4, 4, "More Armor Kits", 100, {[15564] = 8})
-	RPH_AddQuest(909, 4, 8, 7929, 150, {[19267] = 1})
-	RPH_AddQuest(909, 4, 8, 7907, 150, {[19228] = 1})
-	RPH_AddQuest(909, 4, 8, 7928, 150, {[19257] = 1})
-	RPH_AddQuest(909, 4, 8, 7927, 150, {[19277] = 1})
-	RPH_AddQuest(909, 4, 8, "Your Fortune Awaits You...", 50, {["Sayge's Fortune #23"] = 1}) -- Quest ID: 7937, Item ID: 19423 (not added to questdb.lua)
-	RPH_AddQuest(909, 4, 8, "Your Fortune Awaits You...", 50, {["Sayge's Fortune #24"] = 1}) -- Quest ID: 7938, Item ID: 19424 (not added to questdb.lua)
-	RPH_AddQuest(909, 4, 8, "Your Fortune Awaits You...", 50, {["Sayge's Fortune #25"] = 1}) -- Quest ID: 7944, Item ID: 19443 (not added to questdb.lua)
-	RPH_AddQuest(909, 4, 8, "Your Fortune Awaits You...", 50, {["Sayge's Fortune #27"] = 1}) -- Quest ID: 7945, Item ID: 19452 (not added to questdb.lua)
+	RPH_AddQuest(909, 4, 4, "More Dense Grinding Stones", 100, {[12644] = 8}) -- Might not give rep. (have to check)
+	RPH_AddQuest(909, 4, 4, "Copper Modulator", 250, {[4363] = 5}, 500)
+	RPH_AddQuest(909, 4, 4, "Whirring Bronze Gizmo", 250, {[4375] = 7})
+	RPH_AddQuest(909, 4, 4, "Green Fireworks", 250, {[9313] = 36})
+	RPH_AddQuest(909, 4, 4, "Mechanical Repair Kits", 250, {[11590] = 6})
+	RPH_AddQuest(909, 4, 4, "Thorium Widget", 250, {[15994] = 6}, nill, false)
+	RPH_AddQuest(909, 4, 4, "More Thorium Widgets", 100, {[15994] = 6}) -- Might not give rep. (have to check)
+	RPH_AddQuest(909, 4, 4, "Carnival Boots", 250, {[2309] = 3})
+	RPH_AddQuest(909, 4, 4, "Carnival Jerkins", 250, {[2314] = 3})
+	RPH_AddQuest(909, 4, 4, "The World's Largest Gnome!", 250, {[5739] = 3})
+	RPH_AddQuest(909, 4, 4, "Crocolisk Boy and the Bearded Murloc", 250, {[8185] = 1})
+	RPH_AddQuest(909, 4, 4, "Armor Kits", 250, {[15564] = 8}, nill, false)
+	RPH_AddQuest(909, 4, 4, "More Armor Kits", 100, {[15564] = 8}) -- Might not give rep. (have to check)
+	RPH_AddQuest(909, 4, 8, 7929, 350, {[19267] = 1})
+	RPH_AddQuest(909, 4, 8, 7907, 350, {[19228] = 1})
+	RPH_AddQuest(909, 4, 8, 7928, 350, {[19257] = 1})
+	RPH_AddQuest(909, 4, 8, 7927, 350, {[19277] = 1})
+	RPH_AddQuest(909, 4, 8, "Your Fortune Awaits You...", 75, {["Sayge's Fortune #23"] = 1}) -- Quest ID: 7937, Item ID: 19423 (not added to questdb.lua)
+	RPH_AddQuest(909, 4, 8, "Your Fortune Awaits You...", 75, {["Sayge's Fortune #24"] = 1}) -- Quest ID: 7938, Item ID: 19424 (not added to questdb.lua)
+	RPH_AddQuest(909, 4, 8, "Your Fortune Awaits You...", 75, {["Sayge's Fortune #25"] = 1}) -- Quest ID: 7944, Item ID: 19443 (not added to questdb.lua)
+	RPH_AddQuest(909, 4, 8, "Your Fortune Awaits You...", 75, {["Sayge's Fortune #27"] = 1}) -- Quest ID: 7945, Item ID: 19452 (not added to questdb.lua)
 
 	-- Hydraxian Waterlords
 	RPH_AddMob(749, 4, 6, "Desert Rumbler, Dust Stormer", 5, zone.Silithus)
@@ -291,83 +328,89 @@ function RPH_InitEnFactionGains()
 	RPH_AddInstance(749, 4, 8, "Molten Core (Ragnaros and Golemagg)", 350, false)
 
 	-- Ravenholdt
-	RPH_AddMob(349, 4, 6, "Syndicate Mobs", 5)
+	RPH_AddMob(349, 4, 6, "Syndicate Assassin, Wizard, Spy, Thief, Enforcer, Sentry and Saboteur", 5, zone.Alterac_Mountains)
+	RPH_AddMob(349, 4, 6, "Syndicate Rogue, Watchman and Shadow Mage", 5, zone.Hillsbrad_Foothills)
+	RPH_AddMob(349, 4, 6, "Syndicate Highwayman, Mercenary, Pathstalker, Conjuror, Thief, Prowler and Magus", 5, zone.Arathi_Highlands)
 	RPH_AddQuest(349, 4, 5, "Syndicate Emblems (Rogue)", 100, {[17124] = 1})
-	RPH_AddQuest(349, 4, 8, 8249, 50, {[16885] = 5})
+	RPH_AddQuest(349, 4, 8, 8249, 75, {[16885] = 5})
 
 	-- Shen'dralar
-	RPH_AddQuest(809, 4, 8, 7485, 200, {[18334] = 1, [18335] = 1, [14344] = 2, [12735] = 1})
-	RPH_AddQuest(809, 4, 8, 7483, 200, {[18332] = 1, [18335] = 1, [14344] = 2, [12938] = 2})
-	RPH_AddQuest(809, 4, 8, 7484, 200, {[18333] = 1, [18335] = 1, [14344] = 4, [12753] = 2})
-	RPH_AddQuest(809, 4, 8, "Class trinket quest, can only be completed once.", 500, nill, nill, false)
+	RPH_AddQuest(809, 4, 8, 7485, 500, {[18334] = 1, [18335] = 1, [14344] = 2, [12735] = 1})
+	RPH_AddQuest(809, 4, 8, 7483, 500, {[18332] = 1, [18335] = 1, [14344] = 2, [12938] = 2})
+	RPH_AddQuest(809, 4, 8, 7484, 500, {[18333] = 1, [18335] = 1, [14344] = 4, [12753] = 2})
+	RPH_AddQuest(809, 4, 8, "Class trinket quest", 500, nill, nill, false)
 
 	-- Steamwheedle Cartel
 	-- TODO: Add the Dire Maul quests as well, finding mixed values on awarded reputation so need confirmation
 	-- Everlook
-	RPH_AddMob(577, 1, 8, "Wastewander Shadow Mage", 2.5)
-	RPH_AddMob(577, 1, 8, "Wastewander Assassin", 2.5)
-	RPH_AddMob(577, 1, 8, "Wastewander Rogue", 2.5)
-	RPH_AddMob(577, 1, 8, "Wastewander Thief", 2.5)
-	RPH_AddMob(577, 1, 8, "Wastewander Bandit", 2.5)
-	RPH_AddMob(577, 1, 8, "Southsea Brigand", 2.5)
-	RPH_AddMob(577, 1, 8, "Southsea Cannoneer", 2.5)
-	RPH_AddMob(577, 1, 8, "Baron Longshore", 12.5)
+	RPH_AddMob(577, 1, 8, "Wastewander Shadow Mage", 2.5, zone.Tanaris)
+	RPH_AddMob(577, 1, 8, "Wastewander Assassin", 2.5, zone.Tanaris)
+	RPH_AddMob(577, 1, 8, "Wastewander Rogue", 2.5, zone.Tanaris)
+	RPH_AddMob(577, 1, 8, "Wastewander Thief", 2.5, zone.Tanaris)
+	RPH_AddMob(577, 1, 8, "Wastewander Bandit", 2.5, zone.Tanaris)
+	RPH_AddMob(577, 1, 8, "Caliph Scorpidsting", 7.5, zone.Tanaris)
+	RPH_AddMob(577, 1, 8, "Southsea Brigand", 2.5, zone.The_Barrens)
+	RPH_AddMob(577, 1, 8, "Southsea Cannoneer", 2.5, zone.The_Barrens)
+	RPH_AddMob(577, 1, 8, "Baron Longshore", 12.5, zone.The_Barrens)
 	RPH_AddQuest(577, 1, 4, 9266, 500, {[14047] = 40, [3857] = 4})
 	RPH_AddQuest(577, 1, 4, 9268, 250, {[4338] = 40, [3466] = 4})
 	RPH_AddQuest(577, 1, 4, 9267, 250, {[2589] = 40, [3371] = 4})
 	RPH_AddQuest(577, 1, 4, 9259, 250, {[4306] = 40, [2604] = 4})
 	-- Gadgetzan
-	RPH_AddMob(369, 1, 8, "Wastewander Shadow Mage", 5)
-	RPH_AddMob(369, 1, 8, "Wastewander Assassin", 5)
-	RPH_AddMob(369, 1, 8, "Wastewander Rogue", 5)
-	RPH_AddMob(369, 1, 8, "Wastewander Thief", 5)
-	RPH_AddMob(369, 1, 8, "Wastewander Bandit", 5)
-	RPH_AddMob(369, 1, 8, "Southsea Brigand", 2.5)
-	RPH_AddMob(369, 1, 8, "Southsea Cannoneer", 2.5)
-	RPH_AddMob(369, 1, 8, "Baron Longshore", 12.5)
+	RPH_AddMob(369, 1, 8, "Wastewander Shadow Mage", 5, zone.Tanaris)
+	RPH_AddMob(369, 1, 8, "Wastewander Assassin", 5, zone.Tanaris)
+	RPH_AddMob(369, 1, 8, "Wastewander Rogue", 5, zone.Tanaris)
+	RPH_AddMob(369, 1, 8, "Wastewander Thief", 5, zone.Tanaris)
+	RPH_AddMob(369, 1, 8, "Wastewander Bandit", 5, zone.Tanaris)
+	RPH_AddMob(369, 1, 5, "Caliph Scorpidsting", 15, zone.Tanaris)
+	RPH_AddMob(369, 1, 8, "Southsea Brigand", 2.5, zone.The_Barrens)
+	RPH_AddMob(369, 1, 8, "Southsea Cannoneer", 2.5, zone.The_Barrens)
+	RPH_AddMob(369, 1, 8, "Baron Longshore", 12.5, zone.The_Barrens)
 	RPH_AddQuest(369, 1, 4, 9268, 500, {[4338] = 40, [3466] = 4})
 	RPH_AddQuest(369, 1, 4, 9266, 250, {[14047] = 40, [3857] = 4})
 	RPH_AddQuest(369, 1, 4, 9267, 250, {[2589] = 40, [3371] = 4})
 	RPH_AddQuest(369, 1, 4, 9259, 250, {[4306] = 40, [2604] = 4})
 	-- Ratchet
-	RPH_AddMob(470, 1, 8, "Wastewander Shadow Mage", 2.5)
-	RPH_AddMob(470, 1, 8, "Wastewander Assassin", 2.5)
-	RPH_AddMob(470, 1, 8, "Wastewander Rogue", 2.5)
-	RPH_AddMob(470, 1, 8, "Wastewander Thief", 2.5)
-	RPH_AddMob(470, 1, 8, "Wastewander Bandit", 2.5)
-	RPH_AddMob(470, 1, 8, "Southsea Brigand", 5)
-	RPH_AddMob(470, 1, 8, "Southsea Cannoneer", 5)
-	RPH_AddMob(470, 1, 8, "Baron Longshore", 25)
+	RPH_AddMob(470, 1, 8, "Wastewander Shadow Mage", 2.5, zone.Tanaris)
+	RPH_AddMob(470, 1, 8, "Wastewander Assassin", 2.5, zone.Tanaris)
+	RPH_AddMob(470, 1, 8, "Wastewander Rogue", 2.5, zone.Tanaris)
+	RPH_AddMob(470, 1, 8, "Wastewander Thief", 2.5, zone.Tanaris)
+	RPH_AddMob(470, 1, 8, "Wastewander Bandit", 2.5, zone.Tanaris)
+	RPH_AddMob(470, 1, 8, "Caliph Scorpidsting", 7.5, zone.Tanaris)
+	RPH_AddMob(470, 1, 8, "Southsea Brigand", 5, zone.The_Barrens)
+	RPH_AddMob(470, 1, 8, "Southsea Cannoneer", 5, zone.The_Barrens)
+	RPH_AddMob(470, 1, 8, "Baron Longshore", 25, zone.The_Barrens)
 	RPH_AddQuest(470, 1, 4, 9267, 500, {[2589] = 40, [3371] = 4})
 	RPH_AddQuest(470, 1, 4, 9266, 250, {[14047] = 40, [3857] = 4})
 	RPH_AddQuest(470, 1, 4, 9268, 250, {[4338] = 40, [3466] = 4})
 	RPH_AddQuest(470, 1, 4, 9259, 250, {[4306] = 40, [2604] = 4})
 	-- Booty Bay
-	RPH_AddMob(21, 1, 8, "Wastewander Shadow Mage", 2.5)
-	RPH_AddMob(21, 1, 8, "Wastewander Assassin", 2.5)
-	RPH_AddMob(21, 1, 8, "Wastewander Rogue", 2.5)
-	RPH_AddMob(21, 1, 8, "Wastewander Thief", 2.5)
-	RPH_AddMob(21, 1, 8, "Wastewander Bandit", 2.5)
-	RPH_AddMob(21, 1, 8, "Southsea Brigand", 2.5)
-	RPH_AddMob(21, 1, 8, "Southsea Cannoneer", 2.5)
-	RPH_AddMob(21, 1, 8, "Baron Longshore", 12.5)
+	RPH_AddMob(21, 1, 8, "Wastewander Shadow Mage", 2.5, zone.Tanaris)
+	RPH_AddMob(21, 1, 8, "Wastewander Assassin", 2.5, zone.Tanaris)
+	RPH_AddMob(21, 1, 8, "Wastewander Rogue", 2.5, zone.Tanaris)
+	RPH_AddMob(21, 1, 8, "Wastewander Thief", 2.5, zone.Tanaris)
+	RPH_AddMob(21, 1, 8, "Wastewander Bandit", 2.5, zone.Tanaris)
+	RPH_AddMob(21, 1, 8, "Caliph Scorpidsting", 7.5, zone.Tanaris)
+	RPH_AddMob(21, 1, 8, "Southsea Brigand", 2.5, zone.The_Barrens)
+	RPH_AddMob(21, 1, 8, "Southsea Cannoneer", 2.5, zone.The_Barrens)
+	RPH_AddMob(21, 1, 8, "Baron Longshore", 12.5, zone.The_Barrens)
 	RPH_AddQuest(21, 1, 4, 9259, 500, {[4306] = 40, [2604] = 4})
 	RPH_AddQuest(21, 1, 4, 9266, 250, {[14047] = 40, [3857] = 4})
 	RPH_AddQuest(21, 1, 4, 9268, 250, {[4338] = 40, [3466] = 4})
 	RPH_AddQuest(21, 1, 4, 9267, 250, {[2589] = 40, [3371] = 4})
 
 	-- Syndicate
-	RPH_AddMob(70, 1, 4, "Myrokos Silentform", 25)
-	RPH_AddMob(70, 1, 4, "Winstone Wolfe", 5)
-	RPH_AddMob(70, 1, 4, "Lord Jorach Ravenholdt", 5)
-	RPH_AddMob(70, 1, 4, "Fahrad", 5)
-	RPH_AddMob(70, 1, 4, "Zan Shivsproket", 5)
-	RPH_AddMob(70, 1, 4, "Smudge Thunderwood", 5)
-	RPH_AddMob(70, 1, 4, "Simone Cantrell", 5)
-	RPH_AddMob(70, 1, 4, "Master Kang", 5)
-	RPH_AddMob(70, 1, 4, "Carlo Aurelius", 5)
-	RPH_AddMob(70, 1, 4, "Ravenholdt Assassin", 5)
-	RPH_AddMob(70, 1, 4, "Ravenholdt Guard", 5)
+	RPH_AddMob(70, 1, 4, "Myrokos Silentform", 25, zone.Alterac_Mountains)
+	RPH_AddMob(70, 1, 4, "Winstone Wolfe", 5, zone.Alterac_Mountains)
+	RPH_AddMob(70, 1, 4, "Lord Jorach Ravenholdt", 5, zone.Alterac_Mountains)
+	RPH_AddMob(70, 1, 4, "Fahrad", 5, zone.Alterac_Mountains)
+	RPH_AddMob(70, 1, 4, "Zan Shivsproket", 5, zone.Alterac_Mountains)
+	RPH_AddMob(70, 1, 4, "Smudge Thunderwood", 5, zone.Alterac_Mountains)
+	RPH_AddMob(70, 1, 4, "Simone Cantrell", 5, zone.Alterac_Mountains)
+	RPH_AddMob(70, 1, 4, "Master Kang", 5, zone.Alterac_Mountains)
+	RPH_AddMob(70, 1, 4, "Carlo Aurelius", 5, zone.Alterac_Mountains)
+	RPH_AddMob(70, 1, 4, "Ravenholdt Assassin", 5, zone.Alterac_Mountains)
+	RPH_AddMob(70, 1, 4, "Ravenholdt Guard", 5, zone.Alterac_Mountains)
 
 	-- Thorium Brotherhood
 	RPH_AddQuest(59, 4, 5, 8242, 25, {[18944] = 2, [4234] = 10, [3857] = 1})
@@ -381,13 +424,13 @@ function RPH_InitEnFactionGains()
 	RPH_AddQuest(59, 6, 8, 6646, 200, {[11382] = 1})
 
 	-- Timbermaw Hold
-	RPH_AddMob(576, 2, 6, "Deadwood Avenger, Den Watcher, Shaman, Gardener, Pathfinder & Warrior", 5)
-	RPH_AddMob(576, 2, 6, "Winterfall Runner, Den Watcher, Pathfinder, Totemic, Shaman, & Ursa", 5)
-	RPH_AddMob(576, 2, 8, "Chieftain Bloodmaw", 15)
-	RPH_AddMob(576, 2, 8, "Overlord Ror", 15)
-	RPH_AddMob(576, 2, 8, "Ragepaw (Rare)", 25)
-	RPH_AddMob(576, 2, 8, "Grizzle Snowpaw (Rare)", 25)
-	RPH_AddMob(576, 2, 8, "High Chief Winterfall", 25)
+	RPH_AddMob(576, 2, 6, "Deadwood Avenger, Den Watcher, Shaman, Gardener, Pathfinder & Warrior", 5, zone.Felwood)
+	RPH_AddMob(576, 2, 6, "Winterfall Runner, Den Watcher, Pathfinder, Totemic, Shaman, & Ursa", 5, zone.Winterspring)
+	RPH_AddMob(576, 2, 8, "Chieftain Bloodmaw", 15, zone.Felwood)
+	RPH_AddMob(576, 2, 8, "Overlord Ror", 15, zone.Felwood)
+	RPH_AddMob(576, 2, 8, "Ragepaw (Rare)", 25, zone.Felwood)
+	RPH_AddMob(576, 2, 8, "Grizzle Snowpaw (Rare)", 25, zone.Felwood)
+	RPH_AddMob(576, 2, 8, "High Chief Winterfall", 25, zone.Winterspring)
 	RPH_AddQuest(576, 2, 8, 8469, 50, {[21383] = 5})
 	RPH_AddQuest(576, 2, 8, "Feathers for Nafien / Grazle", 50, {[21377] = 5})
 	
@@ -403,28 +446,59 @@ function RPH_InitEnFactionGains()
 	RPH_AddInstance(270, 4, 8, "Zul'Gurub", 2750)
 	
 	-- Magram Clan Centaur
-	RPH_AddMob(93, 1, 5, "Khan Shaka", 25)
-	RPH_AddMob(93, 1, 6, "Gelkis Mauler", 20)
-	RPH_AddMob(93, 1, 6, "Gelkis Marauder", 20)
-	RPH_AddMob(93, 1, 6, "Gelkis Rumbler", 20)
-	RPH_AddMob(93, 1, 6, "Gelkis Outrunner", 20)
-	RPH_AddMob(93, 1, 6, "Gelkis Stamper", 20)
-	RPH_AddMob(93, 1, 6, "Gelkis Windchaser", 20)
-	RPH_AddMob(93, 1, 6, "Gelkis Scout", 20)
-	RPH_AddMob(93, 1, 6, "Gelkis Earthcaller", 20)
+	RPH_AddMob(93, 1, 5, "Khan Shaka", 25, zone.Desolace)
+	RPH_AddMob(93, 1, 6, "Gelkis Mauler", 20, zone.Desolace)
+	RPH_AddMob(93, 1, 6, "Gelkis Marauder", 20, zone.Desolace)
+	RPH_AddMob(93, 1, 6, "Gelkis Rumbler", 20, zone.Desolace)
+	RPH_AddMob(93, 1, 6, "Gelkis Outrunner", 20, zone.Desolace)
+	RPH_AddMob(93, 1, 6, "Gelkis Stamper", 20, zone.Desolace)
+	RPH_AddMob(93, 1, 6, "Gelkis Windchaser", 20, zone.Desolace)
+	RPH_AddMob(93, 1, 6, "Gelkis Scout", 20, zone.Desolace)
+	RPH_AddMob(93, 1, 6, "Gelkis Earthcaller", 20, zone.Desolace)
 
 	-- Gelkis Clan Centaur
-	RPH_AddMob(92, 1, 4, "Warug's Bodyguard", 5)
-	RPH_AddMob(92, 1, 5, "Khan Jehn", 25)
-	RPH_AddMob(92, 1, 6, "Magram Bonepaw", 25)
-	RPH_AddMob(92, 1, 6, "Magram Scout", 20)
-	RPH_AddMob(92, 1, 6, "Magram Wrangler", 20)
-	RPH_AddMob(92, 1, 6, "Magram Windchaser", 20)
-	RPH_AddMob(92, 1, 6, "Magram Stormer", 20)
-	RPH_AddMob(92, 1, 6, "Magram Marauder", 20)
-	RPH_AddMob(92, 1, 6, "Magram Mauler", 20)
-	RPH_AddMob(92, 1, 6, "Magram Outrunner", 20)
-	RPH_AddMob(92, 1, 6, "Magram Pack Runner", 20)
+	RPH_AddMob(92, 1, 4, "Warug's Bodyguard", 5, zone.Desolace)
+	RPH_AddMob(92, 1, 5, "Khan Jehn", 25, zone.Desolace)
+	RPH_AddMob(92, 1, 6, "Magram Bonepaw", 25, zone.Desolace)
+	RPH_AddMob(92, 1, 6, "Magram Scout", 20, zone.Desolace)
+	RPH_AddMob(92, 1, 6, "Magram Wrangler", 20, zone.Desolace)
+	RPH_AddMob(92, 1, 6, "Magram Windchaser", 20, zone.Desolace)
+	RPH_AddMob(92, 1, 6, "Magram Stormer", 20, zone.Desolace)
+	RPH_AddMob(92, 1, 6, "Magram Marauder", 20, zone.Desolace)
+	RPH_AddMob(92, 1, 6, "Magram Mauler", 20, zone.Desolace)
+	RPH_AddMob(92, 1, 6, "Magram Outrunner", 20, zone.Desolace)
+	RPH_AddMob(92, 1, 6, "Magram Pack Runner", 20, zone.Desolace)
+	
+	-- Cenarion Expedition
+	-- TODO: Add turn-in quests / Dailies / Dungeons (and add quest to questdb.lua)
+	RPH_AddQuest(942, 4, 5, "Identify Plant Parts", 250, {["Unidentified Plant Parts"] = 10})
+	RPH_AddQuest(942, 4, 8, "Preparing for War", 250, {["Coilfang Armaments"] = 1}, nil, false)
+	RPH_AddQuest(942, 4, 8, "Coilfang Armaments", 75, {["Coilfang Armaments"] = 1}, nil, true)
+
+	-- Lower City
+	-- TODO: Add turn-in quests / Dailies (and add quest to questdb.lua)
+	RPH_AddQuest(1011, 4, 5, "More Feathers", 250, {["Arakkoa Feather"] = 30})
+	RPH_AddInstance(1011, 4, 5, "Auchenai Crypts", 750, false)
+	RPH_AddInstance(1011, 4, 5, "Sethekk Halls", 1250, false)
+	RPH_AddInstance(1011, 4, 8, "Auchenai Crypts (heroic)", 750, true)
+	RPH_AddInstance(1011, 4, 8, "Sethekk Halls (heroic)", 1250, true)
+	RPH_AddInstance(1011, 4, 8, "Shadow Labyrinth", 2000, false)
+	RPH_AddInstance(1011, 4, 8, "Shadow Labyrinth (heroic)", 2000, true)
+
+	-- The Sha'tar
+	-- TODO: Add turn-in quests (and add quest to questdb.lua)
+	RPH_AddInstance(935, 4, 8, "The Mechanar", 1300, false)
+	RPH_AddInstance(935, 4, 8, "The Botanica", 2400, false)
+	RPH_AddInstance(935, 4, 8, "The Arcatraz", 1900, false)
+	RPH_AddInstance(935, 4, 8, "The Mechanar (heroic)", 2200, true)
+	RPH_AddInstance(935, 4, 8, "The Botanica (heroic)", 2400, true)
+	RPH_AddInstance(935, 4, 8, "The Arcatraz (heroic)", 2700, true)
+
+	-- Keepers of Time
+	RPH_AddInstance(989, 4, 8, "Old Hillsbrad Foothills", 1300, false)
+	RPH_AddInstance(989, 4, 8, "Black Morass", 1200, false)
+	RPH_AddInstance(989, 4, 8, "Old Hillsbrad Foothills (heroic)", 2800, true)
+	RPH_AddInstance(989, 4, 8, "Black Morass (heroic)", 1900, true)
 	
 ---	local preGC = collectgarbage("count"
 	collectgarbage("collect")
